@@ -12,12 +12,17 @@ const nextConfig = {
   },
   async rewrites() {
     return [
+      // Do not work
       ...rewritesList,
+
       // Adding the object here it works.
       // {
       //   source: '/foo',
       //   destination: '/',
       // },
+
+      // Creating a copy of the object works
+      // ...rewritesList.map(e => ({ ...e })),
     ]
   },
 }
