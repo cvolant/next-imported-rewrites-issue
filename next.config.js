@@ -12,7 +12,12 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      ...rewritesList
+      ...rewritesList,
+      // Adding the object here it works.
+      // {
+      //   source: '/foo',
+      //   destination: '/',
+      // },
     ]
   },
 }

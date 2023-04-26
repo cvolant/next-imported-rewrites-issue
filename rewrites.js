@@ -1,6 +1,6 @@
 module.exports = [
     {
-        source: '/something',
+        source: '/foo',
         destination: '/',
     },
 ];
