@@ -1,15 +1,31 @@
-## Reproduce bug
+# Reproduce bug
 
-Start the dev server:
+## Install dependencies
 
+```bash
+yarn install
 ```
-npm run dev
+
+## Using build and start: OK
+
+```bash
+yarn build && yarn start
 ```
 
-Open [http://localhost:3000/en/foo](http://localhost:3000/en/foo)
+Visit `/`: OK.
+Visit `/foo`: OK.
 
-Rewrite should render `/` page when opening `/foo`.
+## Using dev server: 404
 
-From what I understood, it is not working since `rewrites()` is mutating the original object.
+```bash
+yarn dev
+```
 
-If we set the rewrite rule directly in `next.config.js` it works, since it creates a new instance of the array very time.
+Visit `/`: OK.
+Visit `/foo`: 404 despite the rewrite from `/foo` to `/`.
+
+## Using rewrites declared in next.config.js
+
+Edit `next.config.js`, use the in-file rewrite declaration.
+
+Visit `/foo`: OK.
